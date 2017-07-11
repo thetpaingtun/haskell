@@ -151,3 +151,8 @@ hhead xs = case xs of [] -> error "Empty list"
 doubleSmallNumber x = if x > 100
                         then x
                         else x * 2
+
+
+maxlist :: Ord a => [a] -> a
+maxlist (x:[]) = x 
+maxlist (x:xs)  = max x (maxlist xs)
