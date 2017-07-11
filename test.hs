@@ -88,15 +88,66 @@ capital "" = "empty string"
 capital all@(x:xs) = "The first letter of "++ all ++ " is " ++ [x]
 
 
+bmiTell :: Float -> String
+bmiTell bmi
+   | bmi <= 18.5 = "underweight"
+   | bmi <= 25.0 = "normal"
+   | bmi <= 30.0 = "overweight"
+   | otherwise = "a whale"
+
+
+
+calBmi :: Float -> Float -> String
+calBmi w h 
+   | bmi <= skinny = "skinny"
+   | bmi <= normal = "normal"
+   | bmi <= fat    = "fat"
+   | otherwise     = "a whale"
+   where bmi = w / h^2
+         (skinny,normal,fat) = (18.5,25,30)
+
+max' :: Ord a => a -> a -> a
+max' a b 
+   | a > b = a
+   | otherwise = b
 
 
 
 
 
+mycompare :: Ord a => a -> a -> Ordering
+a `mycompare` b 
+   | a > b     = GT
+   | a == b    = EQ
+   | otherwise = LT
 
 
 
 
+initials :: String -> String -> String
+initials (x:xs) (y:ys) = [x] ++ "." ++ [y]
+
+
+calBmis :: [(Float,Float)] -> [Float]
+calBmis xs = [bmi w h | (w,h) <- xs]
+   where bmi w h = w / h^2
 
 
 
+cylinder :: Float -> Float -> Float 
+cylinder r h = 
+   let sidearea = 2 * 3.14 * r * h
+       toparea = 3.14 * r^2
+   in  sidearea + 2 * toparea
+
+
+
+
+hhead :: [a] -> a
+hhead xs = case xs of [] -> error "Empty list"
+                      (x:_) -> x
+
+
+doubleSmallNumber x = if x > 100
+                        then x
+                        else x * 2
