@@ -31,3 +31,19 @@ add x y = x + y
 
 add2 :: Int -> Int -> Int
 add2 x y = x + y
+
+
+add3 :: Num a => a -> a -> a
+add3 x y = x + y
+
+
+
+lucky :: Integral a => a -> String
+lucky 7 = "You are lucky"
+lucky x = "Sorry"
+
+
+
+
+
+
