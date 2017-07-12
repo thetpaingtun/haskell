@@ -154,5 +154,14 @@ doubleSmallNumber x = if x > 100
 
 
 maxlist :: Ord a => [a] -> a
+maxlist [] = error "empty list"
 maxlist (x:[]) = x 
 maxlist (x:xs)  = max x (maxlist xs)
+
+
+id' :: a -> a
+id' x = x
+
+
+palindrome :: String -> Bool
+palindrome xs = reverse xs == xs
