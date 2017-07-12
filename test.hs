@@ -165,3 +165,51 @@ id' x = x
 
 palindrome :: String -> Bool
 palindrome xs = reverse xs == xs
+
+const :: a -> b -> a
+const x _ = x
+
+cons :: a -> (b->a)
+cons x = \_ -> x
+
+
+--odds n = map f [0..n-1]
+  --       where f x = x * 2 +1
+
+
+odds n = map (\x -> x * 2 +1) [0..n-1]
+
+
+factors :: Int -> [Int]
+factors n = [x | x <- [1..n], n `mod` x == 0]
+
+numOfFactors :: Int -> Int
+numOfFactors n = length (factors n)
+
+isPrime :: Int -> Bool
+isPrime n = factors n == [1,n]
+
+primes :: Int -> [Int]
+primes n = [x | x <- [1..n], isPrime x]
+
+
+pairs :: [a] -> [(a,a)]
+pairs xs = zip xs (tail xs) 
+
+sorted :: Ord a => [a] -> Bool
+sorted xs = and [x<=y | (x,y) <- pairs xs]
+
+
+repl :: Int -> a -> [a]
+repl n a = [a | _ <- [1..n]]
+
+perfects :: Int -> [Int]
+perfects n = [x | x <- [1..n],isPerfect x]
+               where isPerfect num = sum (init (factors num)) == num
+
+
+
+
+
+
+
