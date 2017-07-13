@@ -79,10 +79,6 @@ length' [] = 0
 length' (_:xs) = 1 + length' xs 
 
 
-sum' :: Num a => [a] -> a
-sum'[] = 0
-sum' (x:xs) = x + sum' xs
-
 capital :: String -> String 
 capital "" = "empty string" 
 capital all@(x:xs) = "The first letter of "++ all ++ " is " ++ [x]
@@ -206,6 +202,22 @@ repl n a = [a | _ <- [1..n]]
 perfects :: Int -> [Int]
 perfects n = [x | x <- [1..n],isPerfect x]
                where isPerfect num = sum (init (factors num)) == num
+
+
+sum' :: Num a => [a] -> a
+sum' [] = error "empty list"
+sum' (x:[]) = x
+sum' (x:xs) = x + sum' xs
+
+
+
+
+
+
+
+
+
+
 
 
 
