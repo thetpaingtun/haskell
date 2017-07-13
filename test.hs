@@ -209,10 +209,49 @@ sum' [] = error "empty list"
 sum' (x:[]) = x
 sum' (x:xs) = x + sum' xs
 
+reverse' :: [a] -> [a]
+reverse' [] = []
+reverse' xs = (last xs) : (reverse (init xs))
+
+
+zipTogether :: [a] -> [b] -> [(a,b)]
+zipTogether [] _ = []
+zipTogether _ [] = []
+zipTogether (x:xs) (y:ys) = (x,y) : (zipTogether xs ys)
+
+
+nextChar :: Char -> Char
+nextChar c 
+   | c == 'z' = 'a'
+   | otherwise = succ c
 
 
 
+rotateChar :: Char -> Int -> Char
+rotateChar c 0 = c
+rotateChar c n = rotateChar (nextChar c) (n-1)
 
+
+cipher :: String -> Int -> String
+cipher [] _ = []
+cipher (x:xs) n = (rotateChar x n) : (cipher xs n) 
+
+
+
+prevChar :: Char -> Char 
+prevChar c 
+   | c == 'a' = 'z'
+   | otherwise = pred c
+
+
+rollChar :: Char -> Int -> Char
+rollChar c 0 = c
+rollChar c n = rollChar (prevChar c) (n-1)
+
+
+decipher :: String -> Int -> String
+decipher "" _ = []
+decipher (x:xs) n = (rollChar x n) : (decipher xs n)
 
 
 
