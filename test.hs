@@ -253,11 +253,22 @@ decipher :: String -> Int -> String
 decipher "" _ = []
 decipher (x:xs) n = (rollChar x n) : (decipher xs n)
 
+take' :: (Num i, Ord i) => i -> [a] -> [a]
+take' _ [] = []
+take' n (x:xs)
+   | n <=0 = []
+   | otherwise = x : (take' (n-1) xs)
 
 
+rev' :: [a] -> [a]
+rev' [] = []
+rev' (x:xs) = reverse' xs ++ [x] 
 
-
-
+elem' :: (Eq a) => a -> [a] -> Bool
+elem' _ [] = False
+elem' y (x:xs)
+   | y == x = True
+   | otherwise = elem' y xs 
 
 
 
