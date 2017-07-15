@@ -283,6 +283,6 @@ filter' f (x:xs)
    | otherwise = filter' f xs 
 
 
-foldr :: Num a => (a->a->a) -> a -> [a] -> a
-foldr _ [] = 0
-foldr f v (x:xs) = f (f x v) (foldr xs) 
+foldr' :: Num a => (a->a->a) -> a -> [a] -> a
+foldr' _ [] = 0
+foldr' f v (x:xs) = f (f x v) (foldr xs) 
