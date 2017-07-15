@@ -272,6 +272,17 @@ elem' y (x:xs)
 
 
 
+map' :: (a->b)-> [a] -> [b]
+map' _ [] = []
+map' f (x:xs) = (f x) : (map f xs)
+
+filter' :: (a->Bool)-> [a] -> [a]
+filter' _ [] = []
+filter' f (x:xs)
+   | f x       = x : filter' f xs 
+   | otherwise = filter' f xs 
 
 
-
+foldr :: Num a => (a->a->a) -> a -> [a] -> a
+foldr _ [] = 0
+foldr f v (x:xs) = f (f x v) (foldr xs) 
