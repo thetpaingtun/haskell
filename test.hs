@@ -284,5 +284,5 @@ filter' f (x:xs)
 
 
 foldr' :: Num a => (a->a->a) -> a -> [a] -> a
-foldr' _ [] = 0
-foldr' f v (x:xs) = f (f x v) (foldr xs) 
+foldr' _ v []     = v
+foldr' f v (x:xs) = f x (foldr' f v xs) 
