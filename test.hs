@@ -306,6 +306,15 @@ quickSort  (x:xs) = quickSort smaller ++ [x] ++ quickSort larger
                            larger  = [a | a <- xs , a > x]
 
 
+applyTwice :: (a->a) -> a -> a
+applyTwice f a = f (f a)
+
+
+selSort :: Ord a => [a] -> [a]
+selSort [] = []
+selSort xs = (selSort (delete x xs)) ++ [x]
+               where x = maximum xs 
+
 
 
 
