@@ -286,3 +286,30 @@ filter' f (x:xs)
 foldr' :: Num a => (a->a->a) -> a -> [a] -> a
 foldr' _ v []     = v
 foldr' f v (x:xs) = f x (foldr' f v xs) 
+
+
+drop' :: Int -> [a] -> [a]
+drop' 0 xs = xs
+drop' _ [] = []
+drop' n (x:xs) = drop' (n-1) xs
+
+
+appendLists :: [a] -> [a] -> [a]
+appendLists [] ys = ys
+appendLists (x:xs) ys = x : (appendLists xs ys)
+
+
+quickSort :: Ord a => [a] -> [a]
+quickSort []      = []
+quickSort  (x:xs) = quickSort smaller ++ [x] ++ quickSort larger
+                     where smaller = [a | a <- xs , a<= x]
+                           larger  = [a | a <- xs , a > x]
+
+
+
+
+
+
+
+
+
