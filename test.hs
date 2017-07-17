@@ -316,9 +316,14 @@ selSort xs = (selSort (delete x xs)) ++ [x]
                where x = maximum xs 
 
 
+data MetricUnit = Meter | Liter | Kilogram deriving (Show,Eq)
 
 
-
+symbol :: MetricUnit -> String
+symbol m
+   | m == Meter    = "m"
+   | m == Liter    = "l"
+   | m == Kilogram = "k"
 
 
 
