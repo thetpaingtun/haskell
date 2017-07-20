@@ -326,4 +326,32 @@ symbol m
    | m == Kilogram = "k"
 
 
+data Thing = Shoe
+            |Ship
+            |Cabbage
+            |King
+            deriving Show
 
+
+
+isThingSmall :: Thing -> Bool
+isThingSmall King    = False
+isThingSmall Ship    = False
+isThingSmall _       = True
+
+
+data Person = Person String Int Thing
+               deriving Show
+
+
+thet = Person "Thet Paing Tun" 24 Ship
+
+
+getName :: Person -> String
+getName (Person name _ _) = name
+
+getAge :: Person -> Int
+getAge (Person _ age _) = age
+
+getFavThing :: Person -> Thing
+getFavThing (Person _ _ thing) = thing
