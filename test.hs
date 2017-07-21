@@ -355,3 +355,14 @@ getAge (Person _ age _) = age
 
 getFavThing :: Person -> Thing
 getFavThing (Person _ _ thing) = thing
+
+
+
+data IntList = Empty 
+               | Cons Int IntList
+               deriving Show
+
+
+listProd :: IntList -> Int
+listProd Empty       = 1
+listProd (Cons x xs) = x * (listProd xs)
