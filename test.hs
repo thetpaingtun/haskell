@@ -1,6 +1,4 @@
 import Data.List
-import System.IO
-
 
 
 int = 3
