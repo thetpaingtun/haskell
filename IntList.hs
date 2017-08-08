@@ -1,6 +1,6 @@
 --my own list implementation
 
-module Lst where
+module IntList where
 
 data IntList = Empty 
                | Cons Int IntList
